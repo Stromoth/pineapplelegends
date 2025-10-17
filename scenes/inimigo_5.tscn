@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://2xfnob5teodg"]
+
+[ext_resource type="Texture2D" uid="uid://cbi01lwcrxfe6" path="res://assets/sprites/inimigo_5_andando.png" id="1_vy3sv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4s4a5"]
+radius = 11.045361
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkfht"]
+atlas = ExtResource("1_vy3sv")
+region = Rect2(0, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kup7q"]
+atlas = ExtResource("1_vy3sv")
+region = Rect2(33, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnfpi"]
+atlas = ExtResource("1_vy3sv")
+region = Rect2(66, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rlh0"]
+atlas = ExtResource("1_vy3sv")
+region = Rect2(0, 50, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cmu6"]
+atlas = ExtResource("1_vy3sv")
+region = Rect2(33, 50, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rng01"]
+atlas = ExtResource("1_vy3sv")
+region = Rect2(66, 50, 33, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pinwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkfht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kup7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnfpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rlh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cmu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rng01")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_4s4a5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -21)
+sprite_frames = SubResource("SpriteFrames_pinwj")
+autoplay = "default"
+frame_progress = 0.20897603

@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cbi01lwcrxfe6" path="res://assets/sprites/inimigo_5_andando.png" id="1_vy3sv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4s4a5"]
-radius = 11.045361
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vy3sv"]
+radius = 9.0
+height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkfht"]
 atlas = ExtResource("1_vy3sv")
@@ -56,13 +57,14 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
-shape = SubResource("CircleShape2D_4s4a5")
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_vy3sv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -21)
+position = Vector2(2, -21)
 sprite_frames = SubResource("SpriteFrames_pinwj")
 autoplay = "default"
 frame_progress = 0.20897603

@@ -1,56 +1,56 @@
 [gd_scene load_steps=11 format=3 uid="uid://b37y6kvsi6k2d"]
 
-[ext_resource type="Texture2D" uid="uid://cqohr3tbmtmev" path="res://assets/sprites/protagonista.png" id="1_x7p17"]
 [ext_resource type="Script" uid="uid://cm704ichy46jn" path="res://scripts/protagonista.gd" id="1_xrnf0"]
+[ext_resource type="Texture2D" uid="uid://cn52e8j7qas1n" path="res://assets/sprites/protagonista_arma.png" id="2_xrnf0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrnf0"]
 radius = 7.0
 height = 26.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g42wl"]
-atlas = ExtResource("1_x7p17")
-region = Rect2(0, 0, 33, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3br7y"]
-atlas = ExtResource("1_x7p17")
-region = Rect2(33, 0, 33, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iu4xc"]
-atlas = ExtResource("1_x7p17")
-region = Rect2(66, 0, 33, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3twc5"]
-atlas = ExtResource("1_x7p17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8fxu"]
+atlas = ExtResource("2_xrnf0")
 region = Rect2(0, 50, 33, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3alyc"]
-atlas = ExtResource("1_x7p17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk4e0"]
+atlas = ExtResource("2_xrnf0")
 region = Rect2(33, 50, 33, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwfy3"]
-atlas = ExtResource("1_x7p17")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5k0v"]
+atlas = ExtResource("2_xrnf0")
 region = Rect2(66, 50, 33, 50)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_j8fxu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h67au"]
+atlas = ExtResource("2_xrnf0")
+region = Rect2(0, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mojck"]
+atlas = ExtResource("2_xrnf0")
+region = Rect2(33, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bbw0"]
+atlas = ExtResource("2_xrnf0")
+region = Rect2(66, 0, 33, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x55bd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g42wl")
+"texture": SubResource("AtlasTexture_j8fxu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3br7y")
+"texture": SubResource("AtlasTexture_lk4e0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iu4xc")
+"texture": SubResource("AtlasTexture_l5k0v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3twc5")
+"texture": SubResource("AtlasTexture_h67au")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3alyc")
+"texture": SubResource("AtlasTexture_mojck")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uwfy3")
+"texture": SubResource("AtlasTexture_3bbw0")
 }],
 "loop": true,
 "name": &"default",
@@ -65,10 +65,11 @@ position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_xrnf0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -22)
-sprite_frames = SubResource("SpriteFrames_j8fxu")
+z_index = 1
+position = Vector2(1, -21)
+sprite_frames = SubResource("SpriteFrames_x55bd")
 autoplay = "default"
-frame_progress = 0.2673943
+frame_progress = 0.74185544
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.5, 3.5)

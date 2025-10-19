@@ -53,10 +53,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 9.0
+"speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="inimigo_5" type="CharacterBody2D"]
 z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

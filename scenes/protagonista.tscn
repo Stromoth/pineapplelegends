@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cn52e8j7qas1n" path="res://assets/sprites/protagonista_arma.png" id="2_xrnf0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrnf0"]
-radius = 7.0
-height = 26.0
+radius = 4.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8fxu"]
 atlas = ExtResource("2_xrnf0")
@@ -61,12 +61,13 @@ animations = [{
 script = ExtResource("1_xrnf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_xrnf0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(1, -21)
+position = Vector2(1, -16)
+scale = Vector2(0.77272725, 0.77272725)
 sprite_frames = SubResource("SpriteFrames_x55bd")
 animation = &"walking"
 autoplay = "walking"

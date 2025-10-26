@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://0jiy245bjca2"]
+
+[ext_resource type="Texture2D" uid="uid://gmc5s3sgmpx8" path="res://assets/sprites/inimigo_3.png" id="1_cui5c"]
+[ext_resource type="PackedScene" uid="uid://st17gw7jd0k" path="res://scenes/killzone.tscn" id="2_js7ki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cui5c"]
+atlas = ExtResource("1_cui5c")
+region = Rect2(0, 0, 33, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js7ki"]
+atlas = ExtResource("1_cui5c")
+region = Rect2(33, 0, 33, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2tpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cui5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js7ki")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ijun"]
+size = Vector2(16, 18)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -23)
+sprite_frames = SubResource("SpriteFrames_i2tpo")
+
+[node name="Killzone" parent="." instance=ExtResource("2_js7ki")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_8ijun")

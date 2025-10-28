@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://0jiy245bjca2"]
+[gd_scene load_steps=8 format=3 uid="uid://0jiy245bjca2"]
 
-[ext_resource type="Texture2D" uid="uid://gmc5s3sgmpx8" path="res://assets/sprites/inimigo_3.png" id="1_cui5c"]
+[ext_resource type="Texture2D" uid="uid://derv32fccarr2" path="res://assets/sprites/inimigo_3.png" id="1_cui5c"]
+[ext_resource type="Script" uid="uid://bhm67v7w6h4gb" path="res://scripts/frogit.gd" id="1_js7ki"]
 [ext_resource type="PackedScene" uid="uid://st17gw7jd0k" path="res://scenes/killzone.tscn" id="2_js7ki"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cui5c"]
@@ -28,15 +29,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ijun"]
 size = Vector2(12, 14)
 
-[node name="Node2D" type="Node2D"]
+[node name="frogit" type="Node2D"]
+script = ExtResource("1_js7ki")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5.9604645e-08, -18)
 scale = Vector2(0.78030306, 0.7777665)
 sprite_frames = SubResource("SpriteFrames_i2tpo")
+flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_js7ki")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_8ijun")
+
+[node name="raycastright" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(9, 0)
+
+[node name="raycastleft" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(-9, 0)

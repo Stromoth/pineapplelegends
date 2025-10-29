@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://lgc1k7th7kbx"]
+
+[ext_resource type="Texture2D" uid="uid://dfkf3a25johwt" path="res://assets/sprites/inimigo_2.png" id="1_23juw"]
+[ext_resource type="Script" uid="uid://b6n08syclunl2" path="res://scripts/fantasma.gd" id="1_wiw4g"]
+[ext_resource type="PackedScene" uid="uid://st17gw7jd0k" path="res://scenes/killzone.tscn" id="3_3o33r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y345d"]
+atlas = ExtResource("1_23juw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiw4g"]
+atlas = ExtResource("1_23juw")
+region = Rect2(33, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3o33r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y345d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wiw4g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23juw"]
+radius = 14.035668
+
+[node name="fantasma" type="Node2D"]
+script = ExtResource("1_wiw4g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.07999993, -12.08)
+scale = Vector2(0.62, 0.62)
+sprite_frames = SubResource("SpriteFrames_3o33r")
+autoplay = "default"
+frame_progress = 0.9480583
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("3_3o33r")]
+position = Vector2(-0.07999992, -3.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-0.07999992, -9.079998)
+scale = Vector2(0.6400001, 0.6400001)
+shape = SubResource("CircleShape2D_23juw")
+
+[node name="raycastright" type="RayCast2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(1, 2.76)
+target_position = Vector2(12, 0)
+
+[node name="raycastleft" type="RayCast2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(1, 2.76)
+target_position = Vector2(-12, 0)

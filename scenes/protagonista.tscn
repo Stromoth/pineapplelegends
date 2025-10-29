@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://clgveia72qfjm" path="res://assets/sprites/normam_idle.png" id="2_g42wl"]
 [ext_resource type="Texture2D" uid="uid://bejmjwdtee4jj" path="res://assets/sprites/protagonista.png" id="3_3br7y"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrnf0"]
-radius = 3.0
-height = 15.517246
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g42wl"]
+size = Vector2(4.5097523, 14.06427)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iu4xc"]
 atlas = ExtResource("2_g42wl")
@@ -82,9 +81,9 @@ collision_layer = 2
 script = ExtResource("1_xrnf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -9)
+position = Vector2(1, -8)
 scale = Vector2(1.7739335, 1.1376345)
-shape = SubResource("CapsuleShape2D_xrnf0")
+shape = SubResource("RectangleShape2D_g42wl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1

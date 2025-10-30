@@ -1,11 +1,37 @@
-[gd_scene load_steps=14 format=3 uid="uid://b37y6kvsi6k2d"]
+[gd_scene load_steps=27 format=3 uid="uid://b37y6kvsi6k2d"]
 
 [ext_resource type="Script" uid="uid://cm704ichy46jn" path="res://scripts/protagonista.gd" id="1_xrnf0"]
+[ext_resource type="Texture2D" uid="uid://dn72hjhulgqcv" path="res://assets/sprites/protagonista_morrendo.png" id="2_3br7y"]
 [ext_resource type="Texture2D" uid="uid://clgveia72qfjm" path="res://assets/sprites/normam_idle.png" id="2_g42wl"]
 [ext_resource type="Texture2D" uid="uid://bejmjwdtee4jj" path="res://assets/sprites/protagonista.png" id="3_3br7y"]
+[ext_resource type="Texture2D" uid="uid://1ga568lq2x0j" path="res://assets/sprites/protagonista_revivendo.png" id="4_iu4xc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g42wl"]
 size = Vector2(4.5097523, 14.06427)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mojck"]
+atlas = ExtResource("2_3br7y")
+region = Rect2(0, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bbw0"]
+atlas = ExtResource("2_3br7y")
+region = Rect2(33, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x55bd"]
+atlas = ExtResource("2_3br7y")
+region = Rect2(66, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38nwe"]
+atlas = ExtResource("2_3br7y")
+region = Rect2(0, 50, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5pd4"]
+atlas = ExtResource("2_3br7y")
+region = Rect2(33, 50, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl0kv"]
+atlas = ExtResource("2_3br7y")
+region = Rect2(66, 50, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iu4xc"]
 atlas = ExtResource("2_g42wl")
@@ -13,6 +39,26 @@ region = Rect2(33, 50, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3twc5"]
 atlas = ExtResource("2_g42wl")
+region = Rect2(66, 50, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7tch"]
+atlas = ExtResource("4_iu4xc")
+region = Rect2(0, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lgxm"]
+atlas = ExtResource("4_iu4xc")
+region = Rect2(33, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jflb"]
+atlas = ExtResource("4_iu4xc")
+region = Rect2(66, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vufeg"]
+atlas = ExtResource("4_iu4xc")
+region = Rect2(0, 50, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu84y"]
+atlas = ExtResource("4_iu4xc")
 region = Rect2(66, 50, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3alyc"]
@@ -42,6 +88,29 @@ region = Rect2(66, 50, 33, 50)
 [sub_resource type="SpriteFrames" id="SpriteFrames_x55bd"]
 animations = [{
 "frames": [{
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_mojck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bbw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x55bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38nwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5pd4")
+}, {
+"duration": 2.71,
+"texture": SubResource("AtlasTexture_sl0kv")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iu4xc")
 }, {
@@ -51,6 +120,26 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7tch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lgxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jflb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vufeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu84y")
+}],
+"loop": false,
+"name": &"respawn",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,9 +179,8 @@ z_index = 1
 position = Vector2(0.94749546, -14.4128895)
 scale = Vector2(0.6863637, 0.6863636)
 sprite_frames = SubResource("SpriteFrames_x55bd")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.05801283
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -100,3 +188,8 @@ position = Vector2(0, -16)
 zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

@@ -179,7 +179,7 @@ z_index = 1
 position = Vector2(0.94749546, -14.4128895)
 scale = Vector2(0.6863637, 0.6863636)
 sprite_frames = SubResource("SpriteFrames_x55bd")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
@@ -190,6 +190,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
 [node name="RespawnTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 1.4
+one_shot = true
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

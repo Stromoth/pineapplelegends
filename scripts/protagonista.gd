@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -330.0
 @onready var start_position: Vector2 = global_position
 
 var dead = false
+var in_car = false
 
 func _ready() -> void:
 	# conecta sinais por código (pode conectar no editor se preferir)

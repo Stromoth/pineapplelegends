@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://2xfnob5teodg"]
+[gd_scene load_steps=12 format=3 uid="uid://2xfnob5teodg"]
 
+[ext_resource type="Script" uid="uid://jsxbfxy7hbyw" path="res://scripts/inimigo_5.gd" id="1_dkfht"]
 [ext_resource type="Texture2D" uid="uid://cbi01lwcrxfe6" path="res://assets/sprites/inimigo_5_andando.png" id="1_vy3sv"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vy3sv"]
-radius = 9.0
-height = 28.0
+[ext_resource type="PackedScene" uid="uid://st17gw7jd0k" path="res://scenes/killzone.tscn" id="2_4s4a5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkfht"]
 atlas = ExtResource("1_vy3sv")
@@ -56,15 +54,32 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkfht"]
+size = Vector2(12.713892, 23.927784)
+
 [node name="inimigo_5" type="CharacterBody2D"]
 z_index = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
-shape = SubResource("CapsuleShape2D_vy3sv")
+script = ExtResource("1_dkfht")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -21)
+position = Vector2(1.5507956, -14.498795)
+scale = Vector2(0.7000482, 0.7000482)
 sprite_frames = SubResource("SpriteFrames_pinwj")
 autoplay = "default"
-frame_progress = 0.20897603
+frame_progress = 0.5106012
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("2_4s4a5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0.4501688, -8.624699)
+scale = Vector2(0.7000482, 0.7000482)
+shape = SubResource("RectangleShape2D_dkfht")
+
+[node name="raycastright" type="RayCast2D" parent="."]
+position = Vector2(0, -1)
+target_position = Vector2(13, 0)
+
+[node name="raycastleft" type="RayCast2D" parent="."]
+position = Vector2(0, -1)
+target_position = Vector2(-13, 0)

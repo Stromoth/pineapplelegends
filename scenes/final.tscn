@@ -575,6 +575,7 @@ sources/4 = SubResource("TileSetAtlasSource_1wbyy")
 size = Vector2(20, 35.955566)
 
 [node name="final" type="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="carro" parent="." instance=ExtResource("1_2ksrq")]
 position = Vector2(3783, -531)

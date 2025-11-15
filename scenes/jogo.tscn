@@ -685,7 +685,7 @@ position = Vector2(1849, -771)
 metadata/_edit_lock_ = true
 
 [node name="urso2" parent="inimigos/ursos" instance=ExtResource("11_7o8x6")]
-position = Vector2(2217, -772)
+position = Vector2(2217, -771)
 metadata/_edit_lock_ = true
 
 [node name="corpos" type="Node" parent="."]
